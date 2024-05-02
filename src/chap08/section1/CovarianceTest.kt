@@ -3,6 +3,7 @@ package chap08.section1
 // 공변성 선언
 class Box2<out T>(val size: Int)
 
+// 반공변성 선언
 class Box3<in T>(val size: Int)
 
 fun main() {
