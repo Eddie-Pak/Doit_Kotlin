@@ -28,4 +28,22 @@ fun main() {
 
     // slice: 특정 인덱스의 요소들을 잘라서 반환하기
     println("slice: " + list.slice(listOf(0, 1, 2)))
+
+    // take: n개의 요소를 반환
+    println(list.take(2)) // 앞 두 요소 반환
+    println(list.takeLast(2)) // 마지막 두 요소 반환
+    println(list.takeWhile { it < 3 }) // 조건식에 따른 반환
+
+    // drop은 take와는 정반대로 처음부터 n개의 요소를 제외하고 List를 반환한다.
+    println(list.drop(3)) // 앞의 요소 3개 제외하고 반환
+    println(list.dropWhile { it < 3 }) // 3 미만을 제외하고 반환
+    println(list.dropLastWhile { it > 3 }) // 3 초과를 제외하고 반환
+
+    println("component1(): " + list.component1()) // 첫번째 요소인 1 반환
+
+    // distinct: 중복 요소는 하나로 취급해 List반환
+    println("distinct: " + listRepeated.distinct())
+
+    // intersect: 교집합 요소만 골라냄
+    println("intersect: " + list.intersect(listOf(5, 6, 7, 8)))
 }
