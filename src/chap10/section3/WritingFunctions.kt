@@ -1,6 +1,7 @@
 package chap10.section3
 
 import java.io.File
+import java.io.FileWriter
 import java.io.PrintWriter
 
 fun main() {
@@ -9,7 +10,24 @@ fun main() {
 
     val file = File(path)
     val printWriter = PrintWriter(file)
+    val writer = FileWriter(path, true) // 인자: 경로, append여부
 
-    printWriter.println(outString) // 파일에 출력
-    printWriter.close()
+
+//    File(path).printWriter().use { out -> out.println(outString) }
+//    File(path).printWriter().use { it.println(outString) }
+
+    File(path).bufferedWriter().use { it.write(outString) }
+
+    file.writeText(outString)
+    file.appendText("\nDo great work!") // 파일에 문자열을 추가
+
+    // FileWriter 사용하기
+//    try {
+//        writer.write(outString)
+//    } catch (e: Exception) {
+//        // 오류 발생
+//    } finally {
+//        writer.close()
+//    }
+//    FileWriter(path, true).use { it.write(outString) }
 }
